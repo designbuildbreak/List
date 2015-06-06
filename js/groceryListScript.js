@@ -33,80 +33,29 @@ $(document).ready(function(){
 			function addGroceryItemLine(groceryItem)
 			{	
 				//window.alert("3")
-				var groceryItemLine = $("<p>Test</p>");
-				var deleteButton = $("<button class='btn btn-danger'>Delete</button>");
-				var gotItButton = $("<button class='btn btn-primary'>Got It!</button>");
-				var buttons = deleteButton.append(gotItButton);
-				$("#grocery-item").append(groceryItemLine);
-				//$("#grocery-item").append(deleteButton);
-				//$("#grocery-item").append(gotItButton);
-				//$("#grocery-item").append(buttons);
-				//$("#grocery-item").append(addButtonGroup());
-				addButtonGroup("#grocery-item");
+				var deleteButton = $("<button id='delete-button' class='btn btn-danger' style='margin: .5em;'>Delete</button>");
+				var gotItButton = $("<button class='btn btn-primary' style='margin: .5em;'>Got It!</button>");
+				var buttons = deleteButton.add(gotItButton);
 				
-				/* $("#task-name-in-button-group").empty();
-				var $taskLine;
-				$taskLine = $("#button-group").clone().append($("#task-name-in-button-group").append(taskName));
-				$taskLine.appendTo("#task-list"); */
-				//$("#task-name-in-button-group").append(taskName);
+				var lineItem = $("<div id=" + groceryItem + "></div>"); //HOLY SHIT THIS WORKS!!!
+				lineItem = lineItem.append(buttons);
+				lineItem = lineItem.append(groceryItem);				
+				lineItem = lineItem.append("<br>");
+				$("#grocery-item").append(lineItem);
+				//lineItem = $("<span></span>");
 				
-				//$("#task-name-in-button-group").append(taskName);
-				
-				
-				/* $("button.delete").click(function(){
-					$taskLine.remove();
-				})
-				
-				$("button.move-up").click(function(){
-					$taskLine.insertBefore($taskLine.prev());
-				})
-				
-				$("button.delete").click(function(){
-					$taskLine.insertAfter($taskLine.next());
-				}) */
-	
+				//TODO
+				$("button.btn-danger").click(function(){
+					$(lineItem).remove();
+				});
 			};
 			
-			function deleteTaskLine(){
-				
-			}
-			
-			function addButtonGroup(html)
+/* 			$("button").click(function()
 			{
-				var buttons;
-				var deleteButton = $("<button class='btn btn-danger'>Delete</button>");
-				var gotItButton = $("<button class='btn btn-primary'>Got It!</button>");
-				buttons = deleteButton.append(gotItButton);
-				return html.append(buttons);
-			}
+				window.alert("got here");
+				$("#delete-button").remove();
+			}); */
 			
-			//function deleteTaskLine()
-			
-			/* function addTaskElement(taskName)
-			{
-				var $task = $("<li></li>");
-				var $delete = $("<button class='delete' style='display:inline;'>Delete</button>");
-				var $moveUp = $("<button class='move-up' style='display:inline;'>Move Up</button>");
-				var $moveDown = $("<button class='move-down' style='display:inline;'>Move Down</button>");
-				$("#task-list").append(($task.text(taskName + " ")).append($delete).append($moveUp).append($moveDown));
-				
-				$delete.click(function()
-				{
-					$task.remove();
-				});
-				$moveUp.click(function()
-				{
-					$task.insertBefore($task.prev());
-				});
-				$moveDown.click(function()
-				{
-					$task.insertAfter($task.next());
-				});
-				
-			}; */
-		};
-		
-		
-	};
-	
+		};		
+	};	
 });
