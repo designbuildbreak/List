@@ -6,13 +6,23 @@
 		<link href="css/bootstrap.css" rel="StyleSheet"/>
 		<script src="js/jquery-1.11.3.js"></script>
 		<script src="js/bootstrap.js"></script>
-		<script src="js/list.js"></script>
+		<script src="js/groceryListScript.js"></script>
 	</head>
 	<body>
-		<div id="grocery-list-app" class="panel panel-default">
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">@</span>
-				<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-			</div>
+		<div id="grocery-input-container" style="padding: 1em;">
+			<form class="form-inline">
+				<div class="form-group">
+					<!-- <label for="groceryItemInput">Enter Grocery Item</label> -->
+					<input type="text" class="form-control" id="grocery-item-input" placeholder="Enter Grocery Item">
+				</div>
+				<button class="btn btn-primary">Add</button>
+			</form>
 		</div>
+		
+		<div id="grocery-line-item" style="padding: 1em;">
+			<button class="btn btn-danger">Delete</button>
+			<button class="btn btn-primary">Got It!</button>
+			<span id="grocery-item"></span>
+		</div>
+	</body>		
 </html>

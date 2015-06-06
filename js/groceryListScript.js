@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	
-	app = new GroceryListApp();
+	app = new GroceryListScript();
 	app.start();
 	
-	function GroceryListApp()
+	function GroceryListScript()
 	{
 		this.start = function()
 		{
@@ -11,7 +11,7 @@ $(document).ready(function(){
 			$("#grocery-item-input").keypress(function(e){
 				if(e.which==13)//This is the enter key
 				{
-					window.alert("1");
+					//window.alert("1");
 					addGroceryItem();
 					return false; //return false so the .keypress function doesn't do any other stuff.
 				}
@@ -20,7 +20,7 @@ $(document).ready(function(){
 			//When the user presses "enter" to add a grocery item to the list, this function is called
 			function addGroceryItem()
 			{
-				window.alert("2");
+				//window.alert("2");
 				var groceryItem = $("#grocery-item-input").val();
 				if(groceryItem)
 				{
@@ -32,9 +32,17 @@ $(document).ready(function(){
 			//This is a sub-function to addGroceryItem(). It adds the grocery item to the list, adds the buttons, and has the button functionality built into it.
 			function addGroceryItemLine(groceryItem)
 			{	
-				window.alert("3")
+				//window.alert("3")
 				var groceryItemLine = $("<p>Test</p>");
+				var deleteButton = $("<button class='btn btn-danger'>Delete</button>");
+				var gotItButton = $("<button class='btn btn-primary'>Got It!</button>");
+				var buttons = deleteButton.append(gotItButton);
 				$("#grocery-item").append(groceryItemLine);
+				//$("#grocery-item").append(deleteButton);
+				//$("#grocery-item").append(gotItButton);
+				//$("#grocery-item").append(buttons);
+				//$("#grocery-item").append(addButtonGroup());
+				addButtonGroup("#grocery-item");
 				
 				/* $("#task-name-in-button-group").empty();
 				var $taskLine;
@@ -61,6 +69,15 @@ $(document).ready(function(){
 			
 			function deleteTaskLine(){
 				
+			}
+			
+			function addButtonGroup(html)
+			{
+				var buttons;
+				var deleteButton = $("<button class='btn btn-danger'>Delete</button>");
+				var gotItButton = $("<button class='btn btn-primary'>Got It!</button>");
+				buttons = deleteButton.append(gotItButton);
+				return html.append(buttons);
 			}
 			
 			//function deleteTaskLine()
