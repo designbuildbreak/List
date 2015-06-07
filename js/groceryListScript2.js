@@ -24,22 +24,16 @@ $(document).ready(function() {
 		var item = $("#grocery-item-input").val();
 		var deleteButton = $("<button class='btn btn-danger' style='margin: .5em;'>Delete</button>");
 		var gotItButton = $("<button class='btn btn-primary' style='margin: .5em;'>Got It!</button>");
-		var group = deleteButton;
-		group = group.add(gotItButton);
-		group = group.append(item);
-		
-		//here - create a div that holds everything, and then posts that div as a list item - and then just follow the other guys' code.
-		
-		//$("#grocery-list").append("<p class='item'>" + item + "</p>");
-		$("#grocery-list").append(group);
-		//$("#grocery-list").append(gotItButton);
-		//$("#grocery-list").append("<p class='item'>" + item + "</p>");
-		
+		var span = $("<span class='item'></span>");
+		span.append(deleteButton);
+		span.append(gotItButton);
+		span.append(item);
+		span.append("<br>");
+		$("#grocery-list").append(span);
 		$("#grocery-item-input").val("").focus;//Resets the text field
 	};
 
-	//window.alert("1");
-    $(document).on("click", ".item", function () {
-        $(this).remove();
-    });
+	$(document).on("click", ".btn-danger", function () {
+		$(this).closest('span').remove(); //Looks for the closest SPAN element (the one that encapsulates the item) and deletes it. Awesome.
+	});
 });
