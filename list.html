@@ -6,21 +6,21 @@
 		<link href="css/bootstrap.css" rel="StyleSheet"/>
 		<script src="js/jquery-1.11.3.js"></script>
 		<script src="js/bootstrap.js"></script>
-		<script src="js/groceryListScript.js"></script>
+		<script src="js/groceryListScript2.js"></script>
 	</head>
 	<body>
 		<div id="grocery-input-container" style="padding: 1em;">
 			<form class="form-inline">
 				<div class="form-group">
-					<!-- <label for="groceryItemInput">Enter Grocery Item</label> -->
+				
+					<!-- USER INPUT GROCERY ITEM HERE -->
 					<input type="text" class="form-control" id="grocery-item-input" placeholder="Enter Grocery Item">
 				</div>
-				<button class="btn btn-primary">Add To List</button>
+				<button id="add-to-list-button" class="btn btn-primary">Add To List</button>
 			</form>
 		</div>
 		
-		<div id="grocery-list" style="padding: 1em;">
-			<div id="grocery-item"></div>
-		</div>
+		<!-- GROCERY LIST HERE -->
+		<ul id="grocery-list"></ul>
 	</body>		
 </html>

@@ -31,22 +31,26 @@ $(document).ready(function(){
 			
 			//This is a sub-function to addGroceryItem(). It adds the grocery item to the list, adds the buttons, and has the button functionality built into it.
 			function addGroceryItemLine(groceryItem)
-			{	
-				//window.alert("3")
-				var deleteButton = $("<button id='delete-button' class='btn btn-danger' style='margin: .5em;'>Delete</button>");
-				var gotItButton = $("<button class='btn btn-primary' style='margin: .5em;'>Got It!</button>");
+			{					
+				//setting up unique ID's for all of the html elements for each specific grocery item. This way I can manipulate them later.
+				var lineItemId = "div-" + groceryItem;
+				var deleteButtonId = "delete-" + groceryItem;
+				var gotItButtonId = "gotIt-" + groceryItem;
+				
+				var lineItem = $("<div id=" + lineItemId + "></div>"); //Create DIV that holds everything
+				var deleteButton = $("<button id=" + deleteButtonId + " class='btn btn-danger' style='margin: .5em;'>Delete</button>");
+				var gotItButton = $("<button id=" + gotItButtonId + " class='btn btn-primary' style='margin: .5em;'>Got It!</button>");
 				var buttons = deleteButton.add(gotItButton);
 				
-				var lineItem = $("<div id=" + groceryItem + "></div>"); //HOLY SHIT THIS WORKS!!!
 				lineItem = lineItem.append(buttons);
 				lineItem = lineItem.append(groceryItem);				
 				lineItem = lineItem.append("<br>");
-				$("#grocery-item").append(lineItem);
-				//lineItem = $("<span></span>");
 				
-				//TODO
-				$("button.btn-danger").click(function(){
-					$(lineItem).remove();
+				$("#grocery-item").append(lineItem);
+
+				//Delete Key Functionality
+				$("#" + deleteButtonId).click(function(){
+					$("#"+lineItemId).remove();
 				});
 			};
 			
